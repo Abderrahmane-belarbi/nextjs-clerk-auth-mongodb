@@ -59,7 +59,7 @@ export async function POST(req: Request) {
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } =
       evt.data;
-    console.log("type:", typeof email_addresses[0].email_address);
+
     const user = {
       clerkId: id,
       email: email_addresses[0].email_address,
@@ -68,6 +68,8 @@ export async function POST(req: Request) {
       last_name: last_name,
       photo: image_url,
     };
+
+    console.log('user: ', user);
 
     const newUser = await createUser(user);
     if (newUser) {
@@ -81,8 +83,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "New user created", user: newUser });
   }
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
+  //console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+  //console.log("Webhook body:", body);
 
   return new Response("", { status: 200 });
 }
