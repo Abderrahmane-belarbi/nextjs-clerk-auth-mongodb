@@ -61,12 +61,19 @@ export async function POST(req: Request) {
       evt.data;
 
     const user = {
-      clerkId: id,
+      /* clerkId: id,
       email: email_addresses[0].email_address,
       username: username!,
       first_name: first_name,
       last_name: last_name,
-      photo: image_url,
+      photo: image_url, */
+
+      clerkId: 'a6s5d4as56dasd56sd4',
+      email: 'asdasdsdasdasd@asdasdas.clm',
+      username: 'asdasdasdas',
+      first_name: 'sdasdasd',
+      last_name: 'asdasdasd',
+      photo: 'asdklqwelhdlfjsdilfiherktjherkgkjerghjk',
     };
 
     console.log('user: ', user);
