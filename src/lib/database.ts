@@ -21,14 +21,19 @@ export async function connect() {
   }
 
   if (cached.conn) return cached.conn;
-
-  cached.promise =
+  try {
+    cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
       dbName: "clerk-auth-nextjs",
       connectTimeoutMS: 30000,
     });
-
+    console.log('MONGODB CONNECTED')
+  
+  } catch (error) {
+    console.log('MONGODB NOT CONNECTED')    
+  }
+  
   cached.conn = await cached.promise;
   return cached.conn;
 }

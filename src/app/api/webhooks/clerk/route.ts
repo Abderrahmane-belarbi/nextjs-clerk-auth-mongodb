@@ -61,18 +61,12 @@ export async function POST(req: Request) {
       evt.data;
     console.log("type:", typeof email_addresses[0].email_address);
     const user = {
-       clerkId: id,
-        email: email_addresses[0].email_address,
-        username: username!,
-        first_name: first_name,
-        last_name: last_name,
-        photo: image_url 
-/*       clerkId: "asd4as6d4as65d4",
-      email: "sdasd@sdasda.com",
-      username: "adwqeqwe",
-      first_name: "asdasdas",
-      last_name: "asdqweqwe",
-      photo: "asdasdasd", */
+      clerkId: id,
+      email: email_addresses[0].email_address,
+      username: username!,
+      first_name: first_name,
+      last_name: last_name,
+      photo: image_url,
     };
 
     const newUser = await createUser(user);
