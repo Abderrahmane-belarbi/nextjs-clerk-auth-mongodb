@@ -11,5 +11,6 @@ export async function createUser(user: any) {
     
     } catch (error) {
         console.log('USER NOT CREATED');
+        console.log(error)
     }
 }
